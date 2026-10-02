@@ -9,6 +9,21 @@ export function createApp(db: Db) {
   const app = express();
   app.use(express.json());
 
+  // The app calls the API from another origin (the Expo dev server on :8081).
+  app.use((req, res, next) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    res.set(
+      'Access-Control-Allow-Headers',
+      req.get('access-control-request-headers') ?? 'authorization, content-type',
+    );
+    if (req.method === 'OPTIONS') {
+      res.sendStatus(204);
+      return;
+    }
+    next();
+  });
+
   app.get('/health', (_req, res) => {
     res.json({ ok: true });
   });
