@@ -1,4 +1,4 @@
-import type { Group, Project } from '@kerf/shared';
+import type { Group, Measurement, NewMeasurement, Project } from '@kerf/shared';
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
@@ -44,4 +44,9 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
 export const api = {
   projects: () => request<Project[]>('/projects'),
   measurements: (projectId: number) => request<Group[]>(`/projects/${projectId}/measurements`),
+  addMeasurement: (groupId: number, measurement: NewMeasurement) =>
+    request<Measurement>(`/groups/${groupId}/measurements`, {
+      method: 'POST',
+      body: JSON.stringify(measurement),
+    }),
 };

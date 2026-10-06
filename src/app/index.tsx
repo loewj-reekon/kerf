@@ -2,6 +2,7 @@ import { Link } from 'expo-router';
 import { useCallback } from 'react';
 import { FlatList, RefreshControl } from 'react-native';
 
+import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { StatusMessage } from '@/components/status-message';
 import { ThemedText } from '@/components/themed-text';
@@ -19,6 +20,11 @@ export default function ProjectsScreen() {
       data={data ?? []}
       keyExtractor={(p) => String(p.id)}
       refreshControl={<RefreshControl refreshing={loading && !!data} onRefresh={refresh} />}
+      ListHeaderComponent={
+        <Link href="/capture" asChild>
+          <Button title="Capture measurements" variant="primary" />
+        </Link>
+      }
       ListEmptyComponent={<StatusMessage loading={loading} error={error} />}
       renderItem={({ item }) => (
         <Link href={{ pathname: '/projects/[id]', params: { id: item.id, name: item.name } }} asChild>

@@ -10,6 +10,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ contentStyle: { backgroundColor: colors.background } }}>
         <Stack.Screen name="index" options={{ title: 'Projects' }} />
+        <Stack.Screen name="capture" options={{ title: 'Capture' }} />
       </Stack>
     </ThemeProvider>
   );
