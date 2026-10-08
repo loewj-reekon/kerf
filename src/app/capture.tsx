@@ -13,6 +13,7 @@ import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { api } from '@/lib/api';
 import { tape } from '@/lib/tape';
+import { useSettings } from '@/lib/settings';
 import { useLoad } from '@/lib/use-load';
 
 type Reading = { key: string; label: string; value: number; status: SyncStatus };
@@ -26,6 +27,7 @@ export default function CaptureScreen() {
   const [label, setLabel] = useState('');
   const [lastValue, setLastValue] = useState<number>();
   const [readings, setReadings] = useState<Reading[]>([]);
+  const { unit } = useSettings();
 
   useEffect(() => {
     if (projectId === undefined) return;
@@ -96,7 +98,7 @@ export default function CaptureScreen() {
           {tape.deviceId}
         </ThemedText>
         <ThemedText type="title">
-          {lastValue === undefined ? '—' : formatValue(lastValue, 'fractional')}
+          {lastValue === undefined ? '—' : formatValue(lastValue, unit)}
         </ThemedText>
       </ThemedView>
       <Button title="Measure" variant="primary" size="large" onPress={() => tape.measure()} />
@@ -110,7 +112,7 @@ export default function CaptureScreen() {
         <MeasurementRow
           key={r.key}
           label={r.label}
-          value={formatValue(r.value, 'fractional')}
+          value={formatValue(r.value, unit)}
           status={r.status}
         />
       ))}

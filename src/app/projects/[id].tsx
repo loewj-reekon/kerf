@@ -10,6 +10,7 @@ import { ThemedView } from '@/components/themed-view';
 import { layout } from '@/constants/layout';
 import { Spacing } from '@/constants/theme';
 import { api } from '@/lib/api';
+import { useSettings } from '@/lib/settings';
 import { useLoad } from '@/lib/use-load';
 
 export default function ProjectScreen() {
@@ -18,6 +19,8 @@ export default function ProjectScreen() {
   const { data, error, loading, refresh } = useLoad(
     useCallback(() => api.measurements(projectId), [projectId]),
   );
+
+  const { unit } = useSettings();
 
   const sections = (data ?? []).map((group) => ({
     title: group.name,
@@ -44,7 +47,7 @@ export default function ProjectScreen() {
         renderItem={({ item }) => (
           <MeasurementRow
             label={item.label}
-            value={formatValue(item.value, 'fractional')}
+            value={formatValue(item.value, unit)}
             status="synced"
           />
         )}

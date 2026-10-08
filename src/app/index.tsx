@@ -1,12 +1,13 @@
 import { Link } from 'expo-router';
 import { useCallback } from 'react';
-import { FlatList, RefreshControl } from 'react-native';
+import { FlatList, RefreshControl, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { StatusMessage } from '@/components/status-message';
 import { ThemedText } from '@/components/themed-text';
 import { layout } from '@/constants/layout';
+import { Spacing } from '@/constants/theme';
 import { api } from '@/lib/api';
 import { useLoad } from '@/lib/use-load';
 
@@ -21,9 +22,14 @@ export default function ProjectsScreen() {
       keyExtractor={(p) => String(p.id)}
       refreshControl={<RefreshControl refreshing={loading && !!data} onRefresh={refresh} />}
       ListHeaderComponent={
-        <Link href="/capture" asChild>
-          <Button title="Capture measurements" variant="primary" />
-        </Link>
+        <View style={styles.actions}>
+          <Link href="/capture" asChild>
+            <Button title="Capture measurements" variant="primary" />
+          </Link>
+          <Link href="/settings" asChild>
+            <Button title="Settings" />
+          </Link>
+        </View>
       }
       ListEmptyComponent={<StatusMessage loading={loading} error={error} />}
       renderItem={({ item }) => (
@@ -39,3 +45,10 @@ export default function ProjectsScreen() {
     />
   );
 }
+
+const styles = StyleSheet.create({
+  actions: {
+    gap: Spacing.two,
+    marginBottom: Spacing.two,
+  },
+});

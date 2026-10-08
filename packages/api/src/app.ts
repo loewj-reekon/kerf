@@ -1,7 +1,7 @@
 import express from 'express';
 
 import { requireUser } from './auth';
-import type { Db } from './db';
+import { type Db, resetDb } from './db';
 import { measurementsRouter } from './routes/measurements';
 import { projectsRouter } from './routes/projects';
 
@@ -32,6 +32,11 @@ export function createApp(db: Db) {
 
   app.get('/me', (req, res) => {
     res.json(db.prepare('SELECT id, name FROM users WHERE id = ?').get(req.userId));
+  });
+
+  app.post('/dev/reset', (_req, res) => {
+    resetDb(db);
+    res.json({ ok: true });
   });
 
   app.use(projectsRouter(db));

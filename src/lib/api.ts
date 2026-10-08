@@ -49,4 +49,5 @@ export const api = {
       method: 'POST',
       body: JSON.stringify(measurement),
     }),
+  reset: () => request<{ ok: true }>('/dev/reset', { method: 'POST' }),
 };
