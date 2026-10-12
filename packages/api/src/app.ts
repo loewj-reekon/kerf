@@ -2,6 +2,7 @@ import express from 'express';
 
 import { requireUser } from './auth';
 import { type Db, resetDb } from './db';
+import { feedRouter } from './routes/feed';
 import { measurementsRouter } from './routes/measurements';
 import { projectsRouter } from './routes/projects';
 
@@ -41,6 +42,7 @@ export function createApp(db: Db) {
 
   app.use(projectsRouter(db));
   app.use(measurementsRouter(db));
+  app.use(feedRouter(db));
 
   return app;
 }

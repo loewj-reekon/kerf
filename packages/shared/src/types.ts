@@ -35,3 +35,9 @@ export interface NewMeasurement {
   label: string;
   deviceId: string;
 }
+
+export interface FeedItem extends Measurement {
+  projectId: number;
+  projectName: string;
+  groupName: string;
+}
