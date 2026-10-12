@@ -15,7 +15,10 @@ type ChipsProps<T> = {
 export function Chips<T extends string | number>({ options, selected, onSelect }: ChipsProps<T>) {
   const theme = useTheme();
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.row}>
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={styles.row}>
       {options.map((option) => {
         const active = option.value === selected;
         return (

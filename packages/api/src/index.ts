@@ -6,7 +6,8 @@ import { createApp } from './app';
 import { openDb } from './db';
 
 const PORT = Number(process.env.PORT ?? 4000);
-const DB_PATH = process.env.DB_PATH ?? join(dirname(fileURLToPath(import.meta.url)), '../data/kerf.db');
+const DB_PATH =
+  process.env.DB_PATH ?? join(dirname(fileURLToPath(import.meta.url)), '../data/kerf.db');
 
 mkdirSync(dirname(DB_PATH), { recursive: true });
 const db = openDb(DB_PATH);

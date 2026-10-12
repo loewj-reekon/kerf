@@ -131,7 +131,9 @@ const DAY = 24 * 60 * 60 * 1000;
 export function seed(db: DatabaseSync) {
   const insertUser = db.prepare('INSERT INTO users (name, token) VALUES (?, ?)');
   const insertProject = db.prepare('INSERT INTO projects (name, owner_id) VALUES (?, ?)');
-  const insertMember = db.prepare('INSERT INTO project_members (project_id, user_id) VALUES (?, ?)');
+  const insertMember = db.prepare(
+    'INSERT INTO project_members (project_id, user_id) VALUES (?, ?)',
+  );
   const insertGroup = db.prepare('INSERT INTO measurement_groups (project_id, name) VALUES (?, ?)');
   const insertMeasurement = db.prepare(
     `INSERT INTO measurements (group_id, value, label, device_id, created_at, created_by)

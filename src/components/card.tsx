@@ -1,4 +1,10 @@
-import { Pressable, StyleSheet, type PressableProps, type StyleProp, type ViewStyle } from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  type PressableProps,
+  type StyleProp,
+  type ViewStyle,
+} from 'react-native';
 
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
@@ -10,7 +16,9 @@ type CardProps = Omit<PressableProps, 'style' | 'children'> & {
 
 export function Card({ children, style, ...props }: CardProps) {
   return (
-    <Pressable {...props} style={({ pressed }) => [pressed && !!props.onPress && styles.pressed, style]}>
+    <Pressable
+      {...props}
+      style={({ pressed }) => [pressed && !!props.onPress && styles.pressed, style]}>
       <ThemedView type="backgroundElement" style={styles.card}>
         {children}
       </ThemedView>
