@@ -26,6 +26,9 @@ export default function ProjectsScreen() {
           <Link href="/capture" asChild>
             <Button title="Capture measurements" variant="primary" />
           </Link>
+          <Link href="/dashboard" asChild>
+            <Button title="Office dashboard" />
+          </Link>
           <Link href="/settings" asChild>
             <Button title="Settings" />
           </Link>
@@ -33,7 +36,9 @@ export default function ProjectsScreen() {
       }
       ListEmptyComponent={<StatusMessage loading={loading} error={error} />}
       renderItem={({ item }) => (
-        <Link href={{ pathname: '/projects/[id]', params: { id: item.id, name: item.name } }} asChild>
+        <Link
+          href={{ pathname: '/projects/[id]', params: { id: item.id, name: item.name } }}
+          asChild>
           <Card>
             <ThemedText type="smallBold">{item.name}</ThemedText>
             <ThemedText type="small" themeColor="textSecondary">

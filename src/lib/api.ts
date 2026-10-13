@@ -1,4 +1,4 @@
-import type { Group, Measurement, NewMeasurement, Project } from '@kerf/shared';
+import type { FeedItem, Group, Measurement, NewMeasurement, Project } from '@kerf/shared';
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
@@ -49,5 +49,6 @@ export const api = {
       method: 'POST',
       body: JSON.stringify(measurement),
     }),
+  feed: () => request<FeedItem[]>('/feed'),
   reset: () => request<{ ok: true }>('/dev/reset', { method: 'POST' }),
 };

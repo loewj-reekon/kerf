@@ -11,6 +11,7 @@ export default function RootLayout() {
       <Stack screenOptions={{ contentStyle: { backgroundColor: colors.background } }}>
         <Stack.Screen name="index" options={{ title: 'Projects' }} />
         <Stack.Screen name="capture" options={{ title: 'Capture' }} />
+        <Stack.Screen name="dashboard" options={{ title: 'Office dashboard' }} />
         <Stack.Screen name="settings" options={{ title: 'Settings' }} />
       </Stack>
     </ThemeProvider>
