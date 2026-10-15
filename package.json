@@ -38,12 +38,16 @@
     "vitest": "^5.0.0"
   },
   "scripts": {
-    "start": "expo start",
+    "dev": "node scripts/dev.mjs",
+    "dev:api": "yarn workspace @kerf/api dev",
+    "dev:app": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run --passWithNoTests",
+    "start": "expo start",
+    "typecheck": "tsc --noEmit && yarn workspace @kerf/api typecheck"
   },
   "private": true,
   "workspaces": [
