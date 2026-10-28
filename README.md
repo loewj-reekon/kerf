@@ -124,8 +124,7 @@ captured it, on which device, and when.
 
 ## Instructions
 
-- Plan on about **2.5 hours**. You probably won't finish all four tasks, and we don't expect you
-  to. Decide what matters most and tell us why.
+- Plan on about **2.5 hours**. If you can't finish, decide what matters most and tell us why.
 - Use whatever tools you normally would, AI assistants included. We encourage it.
 - If something is ambiguous, make a reasonable call and write it down. If you're stuck on setup or
   have a question, email us at **josh@reekon.tools**.
