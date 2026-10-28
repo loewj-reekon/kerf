@@ -30,8 +30,7 @@ computer's Wi-Fi address on a phone. To point it somewhere else, set `EXPO_PUBLI
 example in a `.env` file) and reload the app.
 
 - **Phone:** install Expo Go, make sure your phone is on the same Wi-Fi network as your computer,
-  and scan the QR code in the terminal. Your phone needs to reach both ports, 8081 and 4000. If your
-  computer asks whether to allow incoming connections for `node`, allow them.
+  and scan the QR code in the terminal. Your phone needs to reach both ports, 8081 and 4000.
 - **Browser:** press `w` in the terminal, or open http://localhost:8081.
 - **Office dashboard:** open http://localhost:8081/dashboard in a browser. It's meant for a desktop
   browser, but it works on the phone too ("Office dashboard" on the home screen).
