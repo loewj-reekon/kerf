@@ -124,17 +124,26 @@ captured it, on which device, and when.
 
 ## Instructions
 
-- Plan on about **2.5 hours**. If you can't finish, decide what matters most and tell us why.
-- Use whatever tools you normally would, AI assistants included. We encourage it.
+- Your submission is due **within 4 hours** of when the challenge email was sent, including your
+  notes and screen recording. If you can't finish, decide what matters most and tell us why.
+- Use whatever tools you normally would, AI assistants included. We encourage it, but you need to
+  be able to defend every choice the AI made.
 - If something is ambiguous, make a reasonable call and write it down. If you're stuck on setup or
   have a question, email us at **josh@reekon.tools**.
 
 ## What to send back
 
-Send your repo (a link or a zip, with your git history) and a `NOTES.md` at the root covering:
+1. **Your code**, with setup instructions we can follow in under 10 minutes.
+2. **A one-page `NOTES.md`** at the root covering:
+   - The design you chose for each feature, the alternatives you rejected, and why
+   - How it behaves when things go wrong: dropped connections, an API restart, the same user on
+     two devices, someone asking for a project they're not in
+   - Which packages you used and why, and anything you considered and rejected
+   - Anything in the existing code that got in your way, and what you did about it
+   - How you verified it works
+   - What you cut, and what you'd build next with another week
+   - At least one place where AI tooling was wrong or unhelpful, and how you noticed
+3. **A 3–5 minute screen recording** demoing the completed product.
 
-- The design you chose, the alternatives you rejected, and why
-- Anything in the existing code that got in your way, and what you did about it
-- How you verified it works
-- What you deliberately left alone, and why
-- At least one place where AI tooling was wrong or unhelpful, and how you noticed
+Email a link to your GitHub repository (with your git history) to **josh@reekon.tools**, with the
+screen recording attached.
